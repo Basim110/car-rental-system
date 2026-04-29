@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet - LuxeDrive</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><i class="bi bi-speedometer"></i> LuxeDrive</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="cars.html">Rental Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <div class="ms-3 d-flex align-items-center">
+                <a href="login.html" id="loginBtn" class="btn btn-warning fw-bold">Login / Admin</a>
+
+                <div id="userSection" class="d-none">
+                    <span class="text-white me-2 small">
+                        Hi, <span id="displayUsername" class="fw-bold text-warning"></span>
+                    </span>
+                    <button onclick="logout()" class="btn btn-outline-danger btn-sm">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-3 mb-4">
+            <div class="card shadow-sm border-0 p-3 sticky-sidebar">
+                <h5 class="fw-bold mb-3">Filters</h5>
+                
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Search Car</label>
+                    <input type="text" id="nameFilter" class="form-control" placeholder="e.g. Civic">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Category</label>
+                    <select id="typeFilter" class="form-select">
+                        <option value="">All Types</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Electric">Electric</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Max Price (per day)</label>
+                    <input type="number" id="priceFilter" class="form-control" placeholder="Enter amount">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Sort By Price</label>
+                    <select id="sortOrder" class="form-select">
+                        <option value="">Default</option>
+                        <option value="asc">Low to High</option>
+                        <option value="desc">High to Low</option>
+                    </select>
+                </div>
+
+                <button id="applyFilterBtn" class="btn btn-warning w-100 fw-bold mb-2">Apply Filters</button>
+                <button onclick="resetFilters()" class="btn btn-outline-secondary w-100 btn-sm">Reset</button>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div id="cars-container" class="row g-4">
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="bookingModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title fw-bold text-dark">Rent Vehicle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="bookingForm">
+                    <input type="hidden" id="bookCarName">
+                    <input type="hidden" id="bookCarPrice">
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Full Name</label>
+                        <input type="text" id="userName" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Contact Number</label>
+                        <input type="tel" id="userPhone" class="form-control" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Pickup Date</label>
+                            <input type="date" id="startDate" class="form-control" required onchange="calculateTotal()">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Return Date</label>
+                            <input type="date" id="endDate" class="form-control" required onchange="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">ID Card No</label>
+                        <input type="text" id="userIdCard" class="form-control" required>
+                    </div>
+
+                    <div class="p-3 bg-light rounded border mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Price per Day:</span>
+                            <span id="displayPricePerDay">$0</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Total Days:</span>
+                            <span id="displayTotalDays">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between fw-bold text-success fs-5 mt-1">
+                            <span>Total Amount:</span>
+                            <span id="displayTotalAmount">$0</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="cars.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const username = sessionStorage.getItem('username');
+    const loginBtn = document.getElementById('loginBtn');
+    const userSection = document.getElementById('userSection');
+    const displayUsername = document.getElementById('displayUsername');
+
+    if (isLoggedIn === 'true') {
+        loginBtn.classList.add('d-none');
+        userSection.classList.remove('d-none');
+        displayUsername.textContent = username;
+    }
+});
+
+function logout() {
+    sessionStorage.clear();
+    window.location.reload();
+}
+</script>
+
+</body>
+</html>

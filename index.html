@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - LuxeDrive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-speedometer"></i> LuxeDrive
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cars.html">Rental Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="ms-3 d-flex align-items-center">
+                    <a href="login.html" id="loginBtn" class="btn btn-warning fw-bold">Login / Admin</a>
+                    
+                    <div id="userSection" class="d-none">
+                        <span class="text-white me-2 small">Hi, <span id="displayUsername" class="fw-bold text-warning"></span></span>
+                        <button onclick="logout()" class="btn btn-outline-danger btn-sm">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Drive Your Dream Car Today</h1>
+            <p class="lead mb-5 opacity-75">Experience the thrill of the road with our premium fleet. Affordable rates, unlimited miles, and 24/7 support.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="cars.html" class="btn btn-warning btn-lg px-5 fw-bold">Book Now</a>
+                <a href="about.html" class="btn btn-outline-light btn-lg px-5">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-warning fw-bold">WHY CHOOSE US</h6>
+                <h2 class="fw-bold">Best Service in the Country</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-wallet2 icon-box"></i>
+                        <h4>Best Price Guarantee</h4>
+                        <p class="text-muted">We offer the most competitive prices in the market with no hidden charges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-shield-check icon-box"></i>
+                        <h4>Verified & Secure</h4>
+                        <p class="text-muted">All our vehicles are fully insured and regularly inspected for your safety.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-headset icon-box"></i>
+                        <h4>24/7 Support</h4>
+                        <p class="text-muted">Our dedicated support team is available round the clock to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">How It Works</h2>
+                <p class="text-muted">Rent your dream car in 3 simple steps</p>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="step-number">1</div>
+                    <h5>Choose A Car</h5>
+                    <p class="text-muted">Browse our extensive fleet and pick the car that suits your style.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-number">2</div>
+                    <h5>Book Online</h5>
+                    <p class="text-muted">Fill out the simple form and reserve your dates in seconds.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-number">3</div>
+                    <h5>Enjoy The Ride</h5>
+                    <p class="text-muted">Pick up your car from our hub and hit the road!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="fw-bold">Save big with our cheap car rental!</h2>
+            <p class="lead mb-4">Top Airports. Local Suppliers. 24/7 Support.</p>
+            <a href="contact.html" class="btn btn-warning btn-lg fw-bold">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-warning">LuxeDrive</h5>
+                    <p class="small">We are a leading car rental agency offering premium vehicles for all your travel needs.</p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="cars.html" class="text-white-50 text-decoration-none">Car Listing</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact Us</h5>
+                    <p class="small mb-2 text-white-50"><i class="bi bi-geo-alt me-2 text-warning"></i> 123 Street, New York, USA</p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Newsletter</h5>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Email">
+                        <button class="btn btn-warning">Go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center py-3 border-top border-secondary">
+            <p class="mb-0 small text-white-50">&copy; 2024 LuxeDrive. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            const username = sessionStorage.getItem('username');
+            
+            const loginBtn = document.getElementById('loginBtn');
+            const userSection = document.getElementById('userSection');
+            const displayUsername = document.getElementById('displayUsername');
+
+            if (isLoggedIn === 'true') {
+                // If logged in: hide login button, show user info/logout
+                loginBtn.classList.add('d-none');
+                userSection.classList.remove('d-none');
+                displayUsername.textContent = username;
+            } else {
+                // If guest: show login button, hide user info
+                loginBtn.classList.remove('d-none');
+                userSection.classList.add('d-none');
+            }
+        });
+
+        function logout() {
+            sessionStorage.clear(); // Clear username and login status
+            alert("Logged out successfully!");
+            window.location.reload(); // Refresh the page to reset the navbar
+        }
+    </script>
+</body>
+</html>

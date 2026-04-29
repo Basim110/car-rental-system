@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - LuxeDrive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card p-4 shadow-sm border-0" style="max-width: 400px; width: 100%;">
+            <h2 class="text-center fw-bold mb-4">Create Account</h2>
+            <form id="signupForm">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Username</label>
+                    <input type="text" id="newUsername" class="form-control" required placeholder="Pick a username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Password</label>
+                    <input type="password" id="newPassword" class="form-control" required placeholder="Create a password">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required placeholder="Repeat password">
+                </div>
+                <button type="submit" class="btn btn-warning w-100 fw-bold text-dark">Register</button>
+            </form>
+            <div class="text-center mt-3">
+                <p class="small text-muted">Already have an account? <a href="login.html" class="text-dark fw-bold">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html>

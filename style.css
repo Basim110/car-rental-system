@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background: #1a1a1a;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.navbar-brand {
+    color: #ed0e0e !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.nav-link { 
+    color: rgba(255,255,255,0.8) !important; 
+    margin-left: 15px; 
+    transition: 0.3s;
+}
+.nav-link:hover, .nav-link.active { color: #cac5b6 !important; }
+
+/* --- Sticky Sidebar Logic --- */
+@media (min-width: 992px) {
+    .sticky-sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 90px; /* Distance from top of screen */
+        z-index: 100;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        /* align-self prevents the flex item from stretching to fill the row height */
+        align-self: flex-start; 
+    }
+}
+
+/* Custom Scrollbar for the filter card (if it gets too long) */
+.sticky-sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+.sticky-sidebar::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 10px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* --- Features Section --- */
+.feature-box {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    height: 100%;
+}
+.feature-box:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid #ffc107;
+}
+.icon-box {
+    font-size: 3rem;
+    color: #ffc107;
+    margin-bottom: 20px;
+}
+
+/* --- Process Section --- */
+.process-section {
+    background-color: #ffffff;
+}
+.step-number {
+    background: #ffc107;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Call to Action Banner --- */
+.cta-section {
+    background: #1a1a1a;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* --- Footer --- */
+footer {
+    background: #111;
+    color: #aaa;
+    padding-top: 60px;
+}
+footer h5 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 10px;
+}
+footer a:hover {
+    color: #ffc107;
+    padding-left: 5px;
+}
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+.footer-bottom {
+    background: #000;
+    padding: 20px 0;
+    margin-top: 50px;
+}
